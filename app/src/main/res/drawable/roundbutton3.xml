@@ -5,10 +5,7 @@
         android:radius="40dp" />
     <gradient
         android:angle="45"
-        android:centerX="float"
-        android:centerY="float"
         android:endColor="#FFEB3B"
-        android:gradientRadius="integer"
         android:startColor="#F44336"
         android:type="linear" />
     <!--If your shape requires only one solid color-->
