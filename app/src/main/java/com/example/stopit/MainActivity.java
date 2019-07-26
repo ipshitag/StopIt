@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity
     private Button b45;
     private Button b60;
     private CountDownTimer cd30;
+    long tmls30;
     long time30 = 30000;
     private CountDownTimer cd45;
     private CountDownTimer cd60;
@@ -49,7 +50,8 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public void onTick(long l)
                 {
-
+                    tmls30 = l;
+                    updateTimer30();
                 }
 
                 @Override
@@ -59,6 +61,21 @@ public class MainActivity extends AppCompatActivity
             }.start();
         }
 
+        public void updateTimer30()
+        {
+            int secs = (int)tmls30 % 600000 / 1000;
+            String timeLeftText;
+
+            timeLeftText = "00";
+            timeLeftText += ":";
+            if(secs<10)
+                timeLeftText += "0"+secs;
+            else
+            timeLeftText += secs;
+
+            tv1.setText(timeLeftText);
+
+        }
 
 
     }
