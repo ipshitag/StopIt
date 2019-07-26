@@ -18,9 +18,12 @@ public class MainActivity extends AppCompatActivity
     private Button b30;
     private Button b45;
     private Button b60;
+    boolean timerRunning = false;
     private CountDownTimer cd30;
-    long tmls30;
+    long tmls;
     long time30 = 30000;
+    long time45 = 45000;
+    long time60 = 60000;
     private CountDownTimer cd45;
     private CountDownTimer cd60;
 
@@ -35,35 +38,104 @@ public class MainActivity extends AppCompatActivity
         b45 = findViewById(R.id.button2);
         b60 = findViewById(R.id.button3);
 
-        b30.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                start30();
-            }
-        });
+        if(!timerRunning) {
+            b30.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    start30();
+                }
+            });
+        }
+
+        if(!timerRunning) {
+            b45.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    start45();
+                }
+            });
+        }
+
+        if(!timerRunning) {
+            b60.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    start60();
+                }
+            });
+        }
     }
 
         public void start30()
         {
-            cd30 = new CountDownTimer(time30,1000)
+            cd45 = new CountDownTimer(time30,1000)
             {
                 @Override
                 public void onTick(long l)
                 {
-                    tmls30 = l;
-                    updateTimer30();
+                    timerRunning = true;
+                    tmls = l;
+                    updateTimer();
                 }
 
                 @Override
-                public void onFinish() {
-
+                public void onFinish()
+                {
+                    timerRunning=false;
                 }
             }.start();
         }
 
-        public void updateTimer30()
+
+    public void start60()
+    {
+        cd60 = new CountDownTimer(time60,1000)
         {
-            int secs = (int)tmls30 % 600000 / 1000;
+            @Override
+            public void onTick(long l)
+            {
+                tmls = l;
+                timerRunning = true;
+                updateTimer();
+            }
+
+            @Override
+            public void onFinish()
+            {
+                timerRunning=false;
+            }
+        }.start();
+    }
+
+
+
+
+    public void start45()
+    {
+        cd30 = new CountDownTimer(time45,1000)
+        {
+            @Override
+            public void onTick(long l)
+            {
+                tmls = l;
+                timerRunning=true;
+                updateTimer();
+            }
+
+            @Override
+            public void onFinish()
+            {
+                timerRunning=false;
+            }
+        }.start();
+    }
+
+
+
+
+        public void updateTimer()
+        {
+            int secs = (int)tmls % 600000 / 1000;
             String timeLeftText;
 
             timeLeftText = "00";
