@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity
     long time60 = 60000;
     private CountDownTimer cd45;
     private CountDownTimer cd60;
+    ToneGenerator toneGen1 = new ToneGenerator(AudioManager.STREAM_MUSIC, 1000);
 
 
     @Override
@@ -84,8 +85,7 @@ public class MainActivity extends AppCompatActivity
                 public void onFinish()
                 {
                     timerRunning=false;
-                    ToneGenerator toneGen1 = new ToneGenerator(AudioManager.STREAM_MUSIC, 1000);
-                    toneGen1.startTone(ToneGenerator.TONE_PROP_BEEP2,150);
+                    toneGen1.startTone(ToneGenerator.TONE_CDMA_EMERGENCY_RINGBACK,150);
                 }
             }.start();
         }
@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity
             public void onFinish()
             {
                 timerRunning=false;
+                toneGen1.startTone(ToneGenerator.TONE_CDMA_EMERGENCY_RINGBACK,150);
             }
         }.start();
     }
@@ -132,6 +133,7 @@ public class MainActivity extends AppCompatActivity
             public void onFinish()
             {
                 timerRunning=false;
+                toneGen1.startTone(ToneGenerator.TONE_CDMA_EMERGENCY_RINGBACK,150);
             }
         }.start();
     }
