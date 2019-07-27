@@ -3,6 +3,8 @@ package com.example.stopit;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Typeface;
+import android.media.AudioManager;
+import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -82,6 +84,8 @@ public class MainActivity extends AppCompatActivity
                 public void onFinish()
                 {
                     timerRunning=false;
+                    ToneGenerator toneGen1 = new ToneGenerator(AudioManager.STREAM_MUSIC, 1000);
+                    toneGen1.startTone(ToneGenerator.TONE_PROP_BEEP2,150);
                 }
             }.start();
         }
