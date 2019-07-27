@@ -38,36 +38,36 @@ public class MainActivity extends AppCompatActivity
         b45 = findViewById(R.id.button2);
         b60 = findViewById(R.id.button3);
 
-        if(!timerRunning) {
+
             b30.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     start30();
                 }
             });
-        }
 
-        if(!timerRunning) {
+
             b45.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     start45();
                 }
             });
-        }
 
-        if(!timerRunning) {
+
+
             b60.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     start60();
                 }
             });
-        }
+
     }
 
         public void start30()
         {
+            if(!timerRunning)
             cd45 = new CountDownTimer(time30,1000)
             {
                 @Override
@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity
 
     public void start60()
     {
+        if(!timerRunning)
         cd60 = new CountDownTimer(time60,1000)
         {
             @Override
@@ -112,6 +113,7 @@ public class MainActivity extends AppCompatActivity
 
     public void start45()
     {
+        if(!timerRunning)
         cd30 = new CountDownTimer(time45,1000)
         {
             @Override
