@@ -15,8 +15,6 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity
 {
     private TextView tv1;
-    private TextView tv2;
-    private TextView tv3;
     private Button b30;
     private Button b45;
     private Button b60;
@@ -85,6 +83,7 @@ public class MainActivity extends AppCompatActivity
                 public void onFinish()
                 {
                     timerRunning=false;
+                    tv1.setText("00:00");
                     toneGen1.startTone(ToneGenerator.TONE_CDMA_EMERGENCY_RINGBACK,150);
                 }
             }.start();
@@ -108,6 +107,7 @@ public class MainActivity extends AppCompatActivity
             public void onFinish()
             {
                 timerRunning=false;
+                tv1.setText("00:00");
                 toneGen1.startTone(ToneGenerator.TONE_CDMA_EMERGENCY_RINGBACK,150);
             }
         }.start();
@@ -133,6 +133,7 @@ public class MainActivity extends AppCompatActivity
             public void onFinish()
             {
                 timerRunning=false;
+                tv1.setText("00:00");
                 toneGen1.startTone(ToneGenerator.TONE_CDMA_EMERGENCY_RINGBACK,150);
             }
         }.start();
