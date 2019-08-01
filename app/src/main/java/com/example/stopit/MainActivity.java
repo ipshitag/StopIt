@@ -141,6 +141,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
+      //to update the text view
 
         public void updateTimer()
         {
