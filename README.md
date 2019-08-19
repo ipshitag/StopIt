@@ -12,4 +12,4 @@ When 30 secs button is clicked (midway)
 When 45 secs button is clicked (midway)
 ![Image3](https://github.com/ipshitag/StopIt/blob/master/updateSS2.jpeg)
 
-# :squirrel:
+ :squirrel: :octocat:
